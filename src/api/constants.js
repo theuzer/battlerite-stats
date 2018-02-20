@@ -1,4 +1,4 @@
 module.exports = {
-  host: 'https://battlerite-stats.herokuapp.com/',
+  host: 'https://battlerite-stats-api.herokuapp.com/',
   statsBase: 'stats',
 };
