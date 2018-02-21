@@ -116,7 +116,7 @@ class Champions extends Component {
 
     return (
       <div>
-        <h1>c</h1>
+        <h1>Champions</h1>
         <div className="options-wrap">
           <div className="filter-wrap">
             {filterList}
