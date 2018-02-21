@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 
 import Filter from './Champions/Filter';
+import Sort from './Champions/Sort';
 import ChampionCard from './Champions/ChampionCard';
 
 import api from '../../api/index';
 import logic from '../../logic/index';
 import filters from '../../static/filters/index';
+import sorts from '../../static/sorts/index';
 
 import './style.css';
 
@@ -20,9 +22,14 @@ class Champions extends Component {
         { id: 2, key: 0 },
         { id: 3, key: 0 },
       ],
+      sorts: [
+        { id: 0, isActive: true, desc: true },
+        { id: 1, isActive: false, desc: false },
+      ],
     };
     this.getStats = this.getStats.bind(this);
     this.handleOnChangeFilter = this.handleOnChangeFilter.bind(this);
+    this.handleOnChangeSort = this.handleOnChangeSort.bind(this);
   }
 
   componentWillMount() {
@@ -51,9 +58,24 @@ class Champions extends Component {
     this.getStats();
   }
 
+  handleOnChangeSort(sortId, e) {
+    const newSorts = this.state.sorts.map((s) => {
+      const sort = s;
+      if (s.id === sortId) {
+        sort.isActive = true;
+        sort.desc = !s.desc;
+      } else {
+        sort.isActive = false;
+      }
+      return sort;
+    });
+    this.setState({
+      sorts: newSorts,
+    });
+  }
+
   render() {
-    const championsList = this.state.champions
-      .sort((a, b) => b.totalGames - a.totalGames)
+    const championsList = logic.sortChampions(this.state.champions, this.state.sorts)
       .map((champion, i) => {
         return (
           <ChampionCard
@@ -80,11 +102,28 @@ class Champions extends Component {
       );
     });
 
+    const sortList = this.state.sorts.map((s) => {
+      const sort = sorts.filter(x => x.id === s.id)[0];
+      return (
+        <Sort
+          key={sort.id}
+          id={sort.id}
+          label={sort.label}
+          onClickSort={this.handleOnChangeSort}
+        />
+      );
+    });
+
     return (
       <div>
-        <h1>Champions</h1>
-        <div className="filter-wrap">
-          {filterList}
+        <h1>c</h1>
+        <div className="options-wrap">
+          <div className="filter-wrap">
+            {filterList}
+          </div>
+          <div className="sort-wrap">
+            {sortList}
+          </div>
         </div>
         <div className="champions-wrap">
           {championsList}

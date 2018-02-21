@@ -11,7 +11,7 @@ module.exports = [
   },
   {
     id: 1,
-    label: 'Ranked',
+    label: 'Queue',
     options: [
       { key: 0, value: 'All', api: null },
       { key: 1, value: 'Ranked', api: true },
@@ -20,7 +20,7 @@ module.exports = [
   },
   {
     id: 2,
-    label: 'Team size',
+    label: 'Mode',
     options: [
       { key: 0, value: 'All', api: null },
       { key: 1, value: '2v2', api: '2' },
@@ -38,7 +38,7 @@ module.exports = [
       { key: 4, value: 'Platinum', api: '3' },
       { key: 5, value: 'Diamond', api: '4' },
       { key: 6, value: 'Champion', api: '5' },
-      { key: 7, value: 'Grand champion', api: '6' },
+      { key: 7, value: 'Grand Champion', api: '6' },
     ],
   },
 ];
