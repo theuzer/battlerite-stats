@@ -4,11 +4,14 @@ import PropTypes from 'prop-types';
 import Property from '../../Common/Property';
 import Image from '../../Common/Image';
 
-const ChampionCard = ({ championName, totalGames, winRate, iconId }) =>
+const ChampionCard = ({
+  championName, totalGames, winRate, iconId,
+}) =>
   (
     <div className="champion-card">
       <div className="left">
-        <Image iconId={iconId} width={150} height={150} />
+        <Image iconId={iconId} width={100} height={100} />
+        {/* comment */}
       </div>
       <div className="right">
         <div>{championName}</div>
