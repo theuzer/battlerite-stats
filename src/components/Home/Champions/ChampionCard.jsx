@@ -10,8 +10,7 @@ const ChampionCard = ({
   (
     <div className="champion-card">
       <div className="left">
-        <Image iconId={iconId} width={100} height={100} />
-        {/*  */}
+        {/* <Image iconId={iconId} width={100} height={100} /> */}
       </div>
       <div className="right">
         <div>{championName}</div>

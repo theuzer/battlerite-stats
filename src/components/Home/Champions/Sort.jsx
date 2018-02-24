@@ -5,7 +5,7 @@ const Sort = ({ id, label, onClickSort }) => {
   return (
     <div>
       <div>{label}</div>
-      <button onClick={e => onClickSort(id, e)}>Sort</button>
+      <button onClick={() => onClickSort(id)}>Sort</button>
     </div>
   );
 };

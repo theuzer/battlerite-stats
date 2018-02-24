@@ -58,7 +58,7 @@ class Champions extends Component {
     this.getStats();
   }
 
-  handleOnChangeSort(sortId, e) {
+  handleOnChangeSort(sortId) {
     const newSorts = this.state.sorts.map((s) => {
       const sort = s;
       if (s.id === sortId) {
