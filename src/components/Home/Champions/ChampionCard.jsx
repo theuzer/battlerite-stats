@@ -16,9 +16,9 @@ const ChampionCard = ({
         <div>{championName}</div>
         <Property label="Total games" value={totalGames} />
         <Property label="Win rate" value={winRate} />
-        <Property label="Average damage done" value={avgDamage} />
-        <Property label="Average healing done" value={avgHeal} />
-        <Property label="Average disables done" value={avgDisables} />
+        <Property label="Avg damage" value={avgDamage} />
+        <Property label="Avg healing" value={avgHeal} />
+        <Property label="Avg disables" value={avgDisables} />
       </div>
     </div>
   );

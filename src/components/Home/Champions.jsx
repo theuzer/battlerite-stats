@@ -25,6 +25,9 @@ class Champions extends Component {
       sorts: [
         { id: 0, isActive: true, desc: true },
         { id: 1, isActive: false, desc: false },
+        { id: 2, isActive: false, desc: false },
+        { id: 3, isActive: false, desc: false },
+        { id: 4, isActive: false, desc: false },
       ],
     };
     this.getStats = this.getStats.bind(this);
