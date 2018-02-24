@@ -69,6 +69,7 @@ class Champions extends Component {
         sort.desc = !s.desc;
       } else {
         sort.isActive = false;
+        sort.desc = false;
       }
       return sort;
     });
