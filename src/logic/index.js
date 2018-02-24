@@ -9,30 +9,28 @@ const handleChampionStats = (stats) => {
     return 0;
   });
 
-  return stats.map((stat) => {
-    return {
-      championName: stat.championName,
-      duoRankedTotal: stat.duoRanked.totalGames,
-      duoRankedWinrate: Math.round(stat.duoRanked.winRate * 10000) / 100,
-      trioRankedTotal: stat.trioRanked.totalGames,
-      trioRankedWinrate: Math.round(stat.trioRanked.winRate * 10000) / 100,
-    };
-  });
+  return stats.map(stat => ({
+    championName: stat.championName,
+    duoRankedTotal: stat.duoRanked.gamesCount,
+    duoRankedWinrate: Math.round(stat.duoRanked.winRate * 10000) / 100,
+    trioRankedTotal: stat.trioRanked.gamesCount,
+    trioRankedWinrate: Math.round(stat.trioRanked.winRate * 10000) / 100,
+  }));
 };
 
 const sortChampions = (champions, sorts) => {
   const activeSort = sorts.filter(x => x.isActive === true)[0];
   if (activeSort.id === 0) {
     if (activeSort.desc === true) {
-      champions.sort((a, b) => b.totalGames - a.totalGames);
+      champions.sort((a, b) => b.stats.gamesCount - a.stats.gamesCount);
     } else {
-      champions.sort((a, b) => a.totalGames - b.totalGames);
+      champions.sort((a, b) => a.stats.gamesCount - b.stats.gamesCount);
     }
   } else if (activeSort.id === 1) {
     if (activeSort.desc === true) {
-      champions.sort((a, b) => b.winRate - a.winRate);
+      champions.sort((a, b) => b.stats.winRate - a.stats.winRate);
     } else {
-      champions.sort((a, b) => a.winRate - b.winRate);
+      champions.sort((a, b) => a.stats.winRate - b.stats.winRate);
     }
   }
   return champions;
@@ -46,5 +44,6 @@ const formatWinRate = winRate => `${roundNumber(winRate * 100, 2)} %`;
 module.exports = {
   handleChampionStats,
   formatWinRate,
+  roundNumber,
   sortChampions,
 };

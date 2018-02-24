@@ -81,9 +81,12 @@ class Champions extends Component {
           <ChampionCard
             key={i}
             championName={champion.championName}
-            totalGames={champion.totalGames}
-            winRate={logic.formatWinRate(champion.winRate)}
-            iconId={champion.iconId}
+            totalGames={champion.stats.gamesCount}
+            winRate={logic.formatWinRate(champion.stats.winRate)}
+            iconId={champion.championIcon}
+            avgDamage={logic.roundNumber(champion.stats.damageDone / champion.stats.roundsCount, 2)}
+            avgHeal={logic.roundNumber(champion.stats.healingDone / champion.stats.roundsCount, 2)}
+            avgDisables={logic.roundNumber(champion.stats.disablesDone / champion.stats.roundsCount, 2)}
           />
         );
       });

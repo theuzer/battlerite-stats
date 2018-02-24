@@ -48,6 +48,7 @@
 
 .property-wrap {
   margin-top: 8px;
+  display: flex;
 }
 
 .property-wrap .label {
@@ -56,5 +57,6 @@
 
 .property-wrap .value {
   font-size: 11px;
+  margin-left: 5px;
 }
 
