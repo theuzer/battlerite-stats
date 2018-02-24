@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 const Sort = ({ id, label, onClickSort }) => {
   return (
     <div>
-      <div>{label}</div>
-      <button onClick={() => onClickSort(id)}>Sort</button>
+      <button onClick={() => onClickSort(id)}>{label}</button>
     </div>
   );
 };

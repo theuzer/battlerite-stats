@@ -42,9 +42,9 @@ class Champions extends Component {
   getStats() {
     api.getStats(this.state.filters)
       .then((response) => {
-        console.log(response);
+        const champions = logic.mapChampionsStats(response.data);
         this.setState({
-          champions: response.data,
+          champions,
         });
       })
       .catch((err) => {
@@ -84,12 +84,12 @@ class Champions extends Component {
           <ChampionCard
             key={i}
             championName={champion.championName}
-            totalGames={champion.stats.gamesCount}
-            winRate={logic.formatWinRate(champion.stats.winRate)}
-            iconId={champion.championIcon}
-            avgDamage={logic.roundNumber(champion.stats.damageDone / champion.stats.roundsCount, 2)}
-            avgHeal={logic.roundNumber(champion.stats.healingDone / champion.stats.roundsCount, 2)}
-            avgDisables={logic.roundNumber(champion.stats.disablesDone / champion.stats.roundsCount, 2)}
+            totalGames={champion.totalGames}
+            winRate={logic.formatWinRate(champion.winRate)}
+            iconId={champion.iconId}
+            avgDamage={logic.roundNumber(champion.avgDamage, 2)}
+            avgHeal={logic.roundNumber(champion.avgHeal, 2)}
+            avgDisables={logic.roundNumber(champion.avgDisables, 2)}
           />
         );
       });

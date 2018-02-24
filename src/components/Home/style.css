@@ -10,11 +10,27 @@
   flex: 1 1 50%;
 }
 
+.filter-wrap > div {
+  margin-left: 7px;
+}
+
+.filter-wrap > div:first-child {
+  margin: 0;
+}
+
 .sort-wrap {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   flex: 1 1 50%;
+}
+
+.sort-wrap > div {
+  margin-left: 7px;
+}
+
+.sort-wrap > div:first-child {
+  margin: 0;
 }
 
 .champions-wrap {

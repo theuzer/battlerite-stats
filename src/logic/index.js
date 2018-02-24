@@ -1,39 +1,30 @@
-const handleChampionStats = (stats) => {
-  stats.sort((a, b) => {
-    if (a.championName > b.championName) {
-      return 1;
-    }
-    if (a.championName < b.championName) {
-      return -1;
-    }
-    return 0;
-  });
+const sorts = require('../static/sorts/index');
 
-  return stats.map(stat => ({
-    championName: stat.championName,
-    duoRankedTotal: stat.duoRanked.gamesCount,
-    duoRankedWinrate: Math.round(stat.duoRanked.winRate * 10000) / 100,
-    trioRankedTotal: stat.trioRanked.gamesCount,
-    trioRankedWinrate: Math.round(stat.trioRanked.winRate * 10000) / 100,
-  }));
+const mapChampionsStats = champions =>
+  (champions.map(champion => ({
+    championName: champion.championName,
+    totalGames: champion.stats.gamesCount,
+    winRate: champion.stats.winRate,
+    iconId: champion.championIcon,
+    avgDamage: champion.stats.damageDone / champion.stats.roundsCount,
+    avgHeal: champion.stats.healingDone / champion.stats.roundsCount,
+    avgDisables: champion.stats.disablesDone / champion.stats.roundsCount,
+  })));
+
+const sortDesc = (champions, prop) => champions.sort((a, b) => b[prop] - a[prop]);
+const sortAsc = (champions, prop) => champions.sort((a, b) => a[prop] - b[prop]);
+
+const sort = (champions, prop, desc) => {
+  if (desc === true) {
+    return sortDesc(champions, prop);
+  }
+  return sortAsc(champions, prop);
 };
 
-const sortChampions = (champions, sorts) => {
-  const activeSort = sorts.filter(x => x.isActive === true)[0];
-  if (activeSort.id === 0) {
-    if (activeSort.desc === true) {
-      champions.sort((a, b) => b.stats.gamesCount - a.stats.gamesCount);
-    } else {
-      champions.sort((a, b) => a.stats.gamesCount - b.stats.gamesCount);
-    }
-  } else if (activeSort.id === 1) {
-    if (activeSort.desc === true) {
-      champions.sort((a, b) => b.stats.winRate - a.stats.winRate);
-    } else {
-      champions.sort((a, b) => a.stats.winRate - b.stats.winRate);
-    }
-  }
-  return champions;
+const sortChampions = (champions, sortOptions) => {
+  const activeSortOption = sortOptions.filter(x => x.isActive === true)[0];
+  const staticSortOption = sorts.filter(x => x.id === activeSortOption.id);
+  return sort(champions, staticSortOption[0].prop, activeSortOption.desc);
 };
 
 const roundNumber = (number, decimals) =>
@@ -42,7 +33,7 @@ const roundNumber = (number, decimals) =>
 const formatWinRate = winRate => `${roundNumber(winRate * 100, 2)} %`;
 
 module.exports = {
-  handleChampionStats,
+  mapChampionsStats,
   formatWinRate,
   roundNumber,
   sortChampions,
