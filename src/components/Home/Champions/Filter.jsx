@@ -10,7 +10,6 @@ const Filter = ({ id, label, opts, value, onChangeOption }) => {
 
   return (
     <div>
-      <div>{label}</div>
       <select value={value} onChange={e => onChangeOption(id, e)}>
         {options}
       </select>
