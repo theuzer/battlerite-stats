@@ -1,19 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Property from '../../Common/Property';
-import Image from '../../Common/Image';
+import Property from './Property';
+import Image from './Image';
 
 const ChampionCard = ({
   championName, totalGames, winRate, iconId, avgDamage, avgHeal, avgDisables,
 }) =>
   (
-    <div className="champion-card">
-      <div className="left">
-        { <Image iconId={iconId} width={100} height={100} /> }
+    <div className="card">
+      <div className="card-header">
+        <div className="col-1">
+          <Image className="img-circle" iconId={iconId} width={40} height={40} />
+        </div>
+        <div className="col-2">
+          <div className="title">{championName}</div>
+        </div>
+        <div className="col-3">
+          <i class="fas fa-chevron-right"></i>
+        </div>
       </div>
-      <div className="right">
-        <div>{championName}</div>
+      <div className="card-content">
         <Property label="Total games" value={totalGames} />
         <Property label="Win rate" value={winRate} />
         <Property label="Avg damage" value={avgDamage} />

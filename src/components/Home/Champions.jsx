@@ -11,6 +11,28 @@ import sorts from '../../static/sorts/index';
 
 import './style.css';
 
+const getColumnChampions = (champions, column) => {
+  const championsSubList = [];
+  while (column < champions.length) {
+    const champion = champions[column];
+    const championCard = (
+      <ChampionCard
+        key={column}
+        championName={champion.championName}
+        totalGames={champion.totalGames}
+        winRate={logic.formatWinRate(champion.winRate)}
+        iconId={champion.iconId}
+        avgDamage={logic.roundNumber(champion.avgDamage, 2)}
+        avgHeal={logic.roundNumber(champion.avgHeal, 2)}
+        avgDisables={logic.roundNumber(champion.avgDisables, 2)}
+      />
+    );
+    championsSubList.push(championCard);
+    column += 5;
+  }
+  return championsSubList;
+};
+
 class Champions extends Component {
   constructor() {
     super();
@@ -79,21 +101,7 @@ class Champions extends Component {
   }
 
   render() {
-    const championsList = logic.sortChampions(this.state.champions, this.state.sorts)
-      .map((champion, i) => {
-        return (
-          <ChampionCard
-            key={i}
-            championName={champion.championName}
-            totalGames={champion.totalGames}
-            winRate={logic.formatWinRate(champion.winRate)}
-            iconId={champion.iconId}
-            avgDamage={logic.roundNumber(champion.avgDamage, 2)}
-            avgHeal={logic.roundNumber(champion.avgHeal, 2)}
-            avgDisables={logic.roundNumber(champion.avgDisables, 2)}
-          />
-        );
-      });
+    const championsList = logic.sortChampions(this.state.champions, this.state.sorts);
 
     const filterList = this.state.filters.map((f) => {
       const filter = filters.filter(x => x.id === f.id)[0];
@@ -123,22 +131,26 @@ class Champions extends Component {
 
     return (
       <div>
-        <h1>Champions</h1>
         <div className="options-wrap">
-          <div className="filter-wrap">
-            {filterList}
-          </div>
-          <div className="sort-wrap">
-            {sortList}
+          <div className="options">
+            <div className="filter-wrap">
+              {filterList}
+            </div>
+            <div className="sort-wrap">
+              {sortList}
+            </div>
           </div>
         </div>
         <div className="champions-wrap">
-          {championsList}
+          <div className="column">{getColumnChampions(championsList, 0)}</div>
+          <div className="column">{getColumnChampions(championsList, 1)}</div>
+          <div className="column">{getColumnChampions(championsList, 2)}</div>
+          <div className="column">{getColumnChampions(championsList, 3)}</div>
+          <div className="column">{getColumnChampions(championsList, 4)}</div> 
         </div>
       </div>
     );
   }
 }
-
 
 export default Champions;

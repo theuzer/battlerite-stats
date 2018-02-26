@@ -1,5 +1,4 @@
 .header {
-  background-color: #fafafb;
   height: 50px;
   top: 0;
   left: 0;
@@ -7,6 +6,11 @@
   width: 100%;
   z-index: 4;
   box-shadow: 0 1px 0 rgba(12,13,14,0.15), 0 0 0 transparent, 0 0 0 transparent, 0 0 0 transparent;
+  background-color: #003c8f;
+  color: #fff;
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
 }
 
 .header .container {
@@ -45,18 +49,3 @@
   flex: 1;
   justify-content: center;
 }
-
-.property-wrap {
-  margin-top: 8px;
-  display: flex;
-}
-
-.property-wrap .label {
-  font-size: 12px;
-}
-
-.property-wrap .value {
-  font-size: 11px;
-  margin-left: 5px;
-}
-

@@ -5,8 +5,8 @@ import './style.css';
 
 const Property = ({ label, value }) =>
   (
-    <div className="property-wrap">
-      <div className="label">{label}</div>
+    <div className="row">
+      <div className="prop">{label}</div>
       <div className="value">{value}</div>
     </div>
   );

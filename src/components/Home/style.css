@@ -1,13 +1,23 @@
 .options-wrap {
+  margin-top: 20px;
   display: inline-flex;
   width: 100%;
+  background-color: #aaa;
+  border-radius: 6px;
+  background-color: #003c8f;
+}
+
+.options {
+  padding: 20px;
+  width: 100%;
+  display: flex;
 }
 
 .filter-wrap {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  flex: 1 1 50%;
+  flex: 1;
 }
 
 .filter-wrap > div {
@@ -22,7 +32,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  flex: 1 1 50%;
+  flex: 1;
 }
 
 .sort-wrap > div {
@@ -39,23 +49,11 @@
   margin-top: 20px;
 }
 
-.champion-card {
-  display: flex;
-  width: 275px;
-  height: 150px;
-  border: 1px solid;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-.champion-card .left {
-  width: 100px;
-  height: 100px;
-}
-
-.champion-card .right {
+.champions-wrap .column {
+  flex: 1;
   margin-left: 10px;
-  margin-top: 8px;
-  width: 165px;
-  height: 90px;
+}
+
+.champions-wrap .column:first-child {
+  margin: 0;
 }
