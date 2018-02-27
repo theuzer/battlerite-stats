@@ -10,7 +10,9 @@ class SearchPlayer extends Component {
   }
 
   handleOnPlayerNameChange(e) {
-
+    this.setState({
+      playerName: e.target.value,
+    });
   }
 
   render() {
