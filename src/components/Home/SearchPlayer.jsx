@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
 class SearchPlayer extends Component {
   constructor() {
@@ -36,4 +37,4 @@ class SearchPlayer extends Component {
   }
 }
 
-export default SearchPlayer;
+export default withRouter(SearchPlayer);

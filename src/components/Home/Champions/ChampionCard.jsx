@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import FontAwesome from 'react-fontawesome';
 
 import Property from './Property';
@@ -53,4 +54,4 @@ ChampionCard.propTypes = {
   avgDisables: PropTypes.string.isRequired,
 };
 
-export default ChampionCard;
+export default withRouter(ChampionCard);
