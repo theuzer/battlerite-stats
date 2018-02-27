@@ -25,21 +25,23 @@
   margin-left: 10px;
   flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .champion-card .title {
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 0.3px;
 }
 
 .champion-card .subtitle {
-  font-size: 14px;
+  font-size: 10px;
+  letter-spacing: -0.3px;
 }
 
 .champion-card .col-3 {
   border-left: 1px solid #e0e6ec;
-  flex: 0 0 40px;
+  flex: 0 0 10px;
   align-items: center;
   justify-content: center;
   display: flex;
@@ -59,9 +61,8 @@
 }
 
 .champion-card .img-next {
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
+  width: 10px;
+  height: 10px;
 }
 
 .champion-card .row {

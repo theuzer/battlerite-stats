@@ -19,7 +19,7 @@ const ChampionCard = ({
           <div className="subtitle">{championSubname}</div>
         </div>
         <div className="col-3">
-          <FontAwesome name="chevron-right" />
+          <FontAwesome class="img-next" name="chevron-right" />
         </div>
       </div>
       <div className="champion-card-content">
