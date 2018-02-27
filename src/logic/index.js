@@ -2,10 +2,11 @@ const sorts = require('../static/sorts/index');
 
 const mapChampionsStats = champions =>
   (champions.map(champion => ({
-    championName: champion.championName,
+    championName: champion.name,
+    championSubname: champion.subname,
+    iconId: champion.iconId,
     totalGames: champion.stats.gamesCount,
     winRate: champion.stats.winRate,
-    iconId: champion.championIcon,
     avgDamage: champion.stats.damageDone / champion.stats.roundsCount,
     avgHeal: champion.stats.healingDone / champion.stats.roundsCount,
     avgDisables: champion.stats.disablesDone / champion.stats.roundsCount,
