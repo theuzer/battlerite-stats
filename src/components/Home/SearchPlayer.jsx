@@ -7,6 +7,7 @@ class SearchPlayer extends Component {
       playerName: '',
     };
     this.handleOnPlayerNameChange = this.handleOnPlayerNameChange.bind(this);
+    this.handleOnEnterKeyPress = this.handleOnEnterKeyPress.bind(this);
   }
 
   handleOnPlayerNameChange(e) {
@@ -15,10 +16,21 @@ class SearchPlayer extends Component {
     });
   }
 
+  handleOnEnterKeyPress() {
+    if (this.state.playerName !== '') {
+      this.props.history.push(`/${this.state.playerName}`);
+    }
+  }
+
   render() {
     return (
       <div>
-        <input placeholder="Search player" value={this.state.playerName} />
+        <input
+          placeholder="Search player"
+          value={this.state.playerName}
+          onChange={this.handleOnPlayerNameChange}
+          onKeyPress={this.handleOnEnterKeyPress}
+        />
       </div>
     );
   }
