@@ -10,7 +10,7 @@ const ChampionCard = ({
 }) =>
   (
     <div className="champion-card">
-      <div className="header">
+      <div className="champion-card-header">
         <div className="col-1">
           <Image className="img-circle" iconId={iconId} width={40} height={40} />
         </div>
@@ -22,7 +22,7 @@ const ChampionCard = ({
           <FontAwesome name="chevron-right" />
         </div>
       </div>
-      <div className="content">
+      <div className="champion-card-content">
         <Property label="Total games" value={totalGames} />
         <Property label="Win rate" value={winRate} />
         <Property label="Avg damage" value={avgDamage} />

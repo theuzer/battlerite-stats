@@ -12,7 +12,7 @@
   margin: 0px;
 }
 
-.champion-card .header {
+.champion-card-header {
   padding: 10px;
   border-bottom: 1px solid #e0e6ec;
   display: flex;
@@ -46,7 +46,7 @@
   padding-left: 10px;
 }
 
-.champion-card .content {
+.champion-card-content {
   padding: 10px;
   font-size: 12px;
 }
