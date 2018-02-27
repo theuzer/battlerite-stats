@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FontAwesome from 'react-fontawesome';
 
 import Property from './Property';
 import Image from './Image';
@@ -11,13 +12,13 @@ const ChampionCard = ({
     <div className="card">
       <div className="card-header">
         <div className="col-1">
-          <Image className="img-circle" iconId={iconId} width={40} height={40} />
+          { /*<Image className="img-circle" iconId={iconId} width={40} height={40} /> */ }
         </div>
         <div className="col-2">
           <div className="title">{championName}</div>
         </div>
         <div className="col-3">
-          <i class="fas fa-chevron-right"></i>
+          <FontAwesome name="chevron-right" />
         </div>
       </div>
       <div className="card-content">

@@ -125,6 +125,7 @@ class Champions extends Component {
           id={sort.id}
           label={sort.label}
           onClickSort={this.handleOnChangeSort}
+          desc={s.desc}
         />
       );
     });
@@ -146,7 +147,7 @@ class Champions extends Component {
           <div className="column">{getColumnChampions(championsList, 1)}</div>
           <div className="column">{getColumnChampions(championsList, 2)}</div>
           <div className="column">{getColumnChampions(championsList, 3)}</div>
-          <div className="column">{getColumnChampions(championsList, 4)}</div> 
+          <div className="column">{getColumnChampions(championsList, 4)}</div>
         </div>
       </div>
     );
