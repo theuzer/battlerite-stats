@@ -27,7 +27,6 @@ const getColumnChampions = (champions, column) => {
         avgDamage={logic.roundNumber(champion.avgDamage, 2)}
         avgHeal={logic.roundNumber(champion.avgHeal, 2)}
         avgDisables={logic.roundNumber(champion.avgDisables, 2)}
-        goToChampion={this.handleGoToChampion}
       />
     );
     championsSubList.push(championCard);
@@ -58,7 +57,6 @@ class Champions extends Component {
     this.getStats = this.getStats.bind(this);
     this.handleOnChangeFilter = this.handleOnChangeFilter.bind(this);
     this.handleOnChangeSort = this.handleOnChangeSort.bind(this);
-    this.handleGoToChampion = this.handleGoToChampion.bind(this);
   }
 
   componentWillMount() {
@@ -102,10 +100,6 @@ class Champions extends Component {
     this.setState({
       sorts: newSorts,
     });
-  }
-
-  handleGoToChampion(championName) {
-    this.props.history.push(`/${championName}`);
   }
 
   render() {
