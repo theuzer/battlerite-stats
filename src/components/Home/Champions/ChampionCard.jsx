@@ -27,7 +27,7 @@ class ChampionCard extends Component {
             <div className="subtitle">{this.props.championSubname}</div>
           </div>
           <div className="col-3" onClick={this.handleGoToChampion} role="navigation">
-            <FontAwesome class="img-next" name="chevron-right" />
+            <FontAwesome className="img-next" name="chevron-right" />
           </div>
         </div>
         <div className="champion-card-content">
