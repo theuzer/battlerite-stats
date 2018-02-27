@@ -12,7 +12,7 @@ const ChampionCard = ({
     <div className="card">
       <div className="card-header">
         <div className="col-1">
-          { /*<Image className="img-circle" iconId={iconId} width={40} height={40} /> */ }
+          <Image className="img-circle" iconId={iconId} width={40} height={40} />
         </div>
         <div className="col-2">
           <div className="title">{championName}</div>
