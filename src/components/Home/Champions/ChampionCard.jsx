@@ -6,22 +6,23 @@ import Property from './Property';
 import Image from './Image';
 
 const ChampionCard = ({
-  championName, totalGames, winRate, iconId, avgDamage, avgHeal, avgDisables,
+  championName, championSubname, totalGames, winRate, iconId, avgDamage, avgHeal, avgDisables,
 }) =>
   (
-    <div className="card">
-      <div className="card-header">
+    <div className="champion-card">
+      <div className="header">
         <div className="col-1">
           <Image className="img-circle" iconId={iconId} width={40} height={40} />
         </div>
         <div className="col-2">
           <div className="title">{championName}</div>
+          <div className="subtitle">{championSubname}</div>
         </div>
         <div className="col-3">
           <FontAwesome name="chevron-right" />
         </div>
       </div>
-      <div className="card-content">
+      <div className="content">
         <Property label="Total games" value={totalGames} />
         <Property label="Win rate" value={winRate} />
         <Property label="Avg damage" value={avgDamage} />
@@ -33,6 +34,7 @@ const ChampionCard = ({
 
 ChampionCard.propTypes = {
   championName: PropTypes.string.isRequired,
+  championSubname: PropTypes.string.isRequired,
   totalGames: PropTypes.number.isRequired,
   winRate: PropTypes.string.isRequired,
   iconId: PropTypes.string.isRequired,

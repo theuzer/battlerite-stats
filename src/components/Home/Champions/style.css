@@ -1,4 +1,4 @@
-.card {
+.champion-card {
   border-radius: 6px;
   border: 1px solid #e0e6ec;
   min-width: 202px;
@@ -8,11 +8,11 @@
   color: #1a1a1a;
 }
 
-.card:first-child {
+.champion-card:first-child {
   margin: 0px;
 }
 
-.card-header {
+.champion-card .header {
   padding: 10px;
   border-bottom: 1px solid #e0e6ec;
   display: flex;
@@ -21,34 +21,23 @@
   font-weight: bold;
 }
 
-.card-content {
-  padding: 10px;
-  font-size: 12px;
-}
-
-.img-circle {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-}
-
-.img-next {
-  border-radius: 50%;
-  width: 25px;
-  height: 25px;
-}
-
-.col-2 {
+.champion-card .col-2 {
   margin-left: 10px;
   flex: 1;
   display: flex;
   align-items: center;
+}
+
+.champion-card .title {
   font-size: 16px;
   letter-spacing: 0.3px;
 }
 
-.col-3 {
+.champion-card .subtitle {
+  font-size: 14px;
+}
+
+.champion-card .col-3 {
   border-left: 1px solid #e0e6ec;
   flex: 0 0 40px;
   align-items: center;
@@ -57,26 +46,38 @@
   padding-left: 10px;
 }
 
-.ellipsis {
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;  
+.champion-card .content {
+  padding: 10px;
+  font-size: 12px;
 }
 
-.row {
+.champion-card .img-circle {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+}
+
+.champion-card .img-next {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+
+.champion-card .row {
   display: flex;
   margin-top: 10px;
 }
 
-.row:first-child {
+.champion-card .row:first-child {
   margin: 0;
 }
 
-.prop {
+.champion-card .prop {
   flex: 0 0 100px;
 }
 
-.value {
+.champion-card .value {
 }
 
 .sort-button {

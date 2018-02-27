@@ -19,6 +19,7 @@ const getColumnChampions = (champions, column) => {
       <ChampionCard
         key={column}
         championName={champion.championName}
+        championSubname={champion.championSubname}
         totalGames={champion.totalGames}
         winRate={logic.formatWinRate(champion.winRate)}
         iconId={champion.iconId}
