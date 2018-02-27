@@ -12,12 +12,13 @@ import sorts from '../../static/sorts/index';
 import './style.css';
 
 const getColumnChampions = (champions, column) => {
+  let i = column;
   const championsSubList = [];
-  while (column < champions.length) {
-    const champion = champions[column];
+  while (i < champions.length) {
+    const champion = champions[i];
     const championCard = (
       <ChampionCard
-        key={column}
+        key={i}
         championName={champion.championName}
         championSubname={champion.championSubname}
         totalGames={champion.totalGames}
@@ -26,10 +27,11 @@ const getColumnChampions = (champions, column) => {
         avgDamage={logic.roundNumber(champion.avgDamage, 2)}
         avgHeal={logic.roundNumber(champion.avgHeal, 2)}
         avgDisables={logic.roundNumber(champion.avgDisables, 2)}
+        goToChampion={this.handleGoToChampion}
       />
     );
     championsSubList.push(championCard);
-    column += 5;
+    i += 5;
   }
   return championsSubList;
 };
@@ -56,6 +58,7 @@ class Champions extends Component {
     this.getStats = this.getStats.bind(this);
     this.handleOnChangeFilter = this.handleOnChangeFilter.bind(this);
     this.handleOnChangeSort = this.handleOnChangeSort.bind(this);
+    this.handleGoToChampion = this.handleGoToChampion.bind(this);
   }
 
   componentWillMount() {
@@ -76,10 +79,10 @@ class Champions extends Component {
   }
 
   handleOnChangeFilter(filterId, e) {
-    const filters = this.state.filters;
-    filters.filter(x => x.id === filterId)[0].key = parseInt(e.target.value, 10);
+    const newFilters = this.state.filters;
+    newFilters.filter(x => x.id === filterId)[0].key = parseInt(e.target.value, 10);
     this.setState({
-      filters,
+      filters: newFilters,
     });
     this.getStats();
   }
@@ -99,6 +102,10 @@ class Champions extends Component {
     this.setState({
       sorts: newSorts,
     });
+  }
+
+  handleGoToChampion(championName) {
+    this.props.history.push(`/${championName}`);
   }
 
   render() {

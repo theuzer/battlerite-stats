@@ -6,7 +6,15 @@ import Property from './Property';
 import Image from './Image';
 
 const ChampionCard = ({
-  championName, championSubname, totalGames, winRate, iconId, avgDamage, avgHeal, avgDisables,
+  championName,
+  championSubname,
+  totalGames,
+  winRate,
+  iconId,
+  avgDamage,
+  avgHeal,
+  avgDisables,
+  goToChampion,
 }) =>
   (
     <div className="champion-card">
@@ -18,7 +26,7 @@ const ChampionCard = ({
           <div className="title">{championName}</div>
           <div className="subtitle">{championSubname}</div>
         </div>
-        <div className="col-3">
+        <div className="col-3" onClick={goToChampion(championName)} role="navigation">
           <FontAwesome class="img-next" name="chevron-right" />
         </div>
       </div>
@@ -41,6 +49,7 @@ ChampionCard.propTypes = {
   avgDamage: PropTypes.string.isRequired,
   avgHeal: PropTypes.string.isRequired,
   avgDisables: PropTypes.string.isRequired,
+  goToChampion: PropTypes.func.isRequired,
 };
 
 export default ChampionCard;
