@@ -17,8 +17,8 @@ class SearchPlayer extends Component {
     });
   }
 
-  handleOnEnterKeyPress() {
-    if (this.state.playerName !== '') {
+  handleOnEnterKeyPress(e) {
+    if (e.key === 'Enter' && this.state.playerName !== '') {
       this.props.history.push(`/${this.state.playerName}`);
     }
   }
@@ -27,6 +27,7 @@ class SearchPlayer extends Component {
     return (
       <div>
         <input
+          className="search-player-input"
           placeholder="Search player"
           value={this.state.playerName}
           onChange={this.handleOnPlayerNameChange}

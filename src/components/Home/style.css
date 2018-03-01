@@ -57,3 +57,9 @@
 .champions-wrap .column:first-child {
   margin: 0;
 }
+
+.search-player-input {
+  border: 0px;
+  border-radius: 4px;
+  padding: 4px 8px;
+}
