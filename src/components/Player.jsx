@@ -21,11 +21,14 @@ class Player extends Component {
 
   getPlayerMatches(playerName, page) {
     const i = this.state.a;
+    console.time('getPlayerMatches');
     api.getPlayerMatches(playerName, page)
       .then((response) => {
+        console.timeEnd('getPlayerMatches');
         console.log(response);
       })
       .catch((err) => {
+        console.timeEnd('getPlayerMatches');
         console.log(err);
       });
   }
