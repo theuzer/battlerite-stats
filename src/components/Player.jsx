@@ -8,9 +8,12 @@ class Player extends Component {
   constructor() {
     super();
     this.state = {
+      page: 0,
       matches: [],
+      showMoreGamesButton: false,
     };
     this.getPlayerMatches = this.getPlayerMatches.bind(this);
+    this.handleGetMoreGames = this.handleGetMoreGames.bind(this);
   }
 
   componentWillMount() {
@@ -23,14 +26,35 @@ class Player extends Component {
       .then((response) => {
         console.timeEnd('getPlayerMatches');
         console.log(response);
-        this.setState({
-          matches: response.data,
-        });
+
+        if (response.data.length) {
+          const matches = this.state.matches.concat(response.data);
+          if (page === 0) {
+            this.setState({
+              matches,
+              showMoreGamesButton: true,
+            });
+          } else {
+            this.setState({
+              matches,
+            });
+          }
+        } else {
+          this.setState({
+            showMoreGamesButton: false,
+          });
+        }
       })
       .catch((err) => {
         console.timeEnd('getPlayerMatches');
         console.log(err);
       });
+  }
+
+  handleGetMoreGames() {
+    const page = this.state.page + 1;
+    this.getPlayerMatches(this.props.match.params.playerName, page);
+    this.setState({ page });
   }
 
   render() {
@@ -39,9 +63,13 @@ class Player extends Component {
         <Match key={match.id} match={match} />
       ));
 
+    const showMoreGamesButton = this.state.showMoreGamesButton ?
+      (<button className="get-more-button" onClick={this.handleGetMoreGames}>MORE</button>) : null;
+
     return (
       <div>
         {matches}
+        {showMoreGamesButton}
       </div>
     );
   }

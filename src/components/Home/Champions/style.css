@@ -82,17 +82,3 @@
 
 .champion-card .value {
 }
-
-.sort-button {
-  display: flex;
-  align-items: center;
-}
-
-.sort-button .label {
-  white-space: nowrap;
-}
-
-.sort-button .arrow {
-  height: 10px;
-  margin-left: 5px;
-}

@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import './style.css';
 
 const Match = ({ match }) => {
-  const loadoutList = match.loadout.map((loadout, i) => {
+  const loadoutList = match.loadout.map((battlerite, i) => {
     return (
       <div key={i}>
-        {loadout.iconId}
-        {loadout.name}
+        {battlerite.name}
       </div>
     );
   });
@@ -26,10 +25,7 @@ const Match = ({ match }) => {
       <div>{matchType}</div>
       <div>{match.map.name}</div>
       <div>{match.dateCreated}</div>
-      {match.numberOfRounds}
-      {match.stats.abilityUses}
       {match.champion.name}
-      {match.champion.iconId}
       {loadoutList}
     </div>
   );

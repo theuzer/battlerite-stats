@@ -12,7 +12,7 @@ const Filter = ({
 
   return (
     <div>
-      <select value={value} onChange={e => onChangeOption(id, e)}>
+      <select className="select-filter" value={value} onChange={e => onChangeOption(id, e)}>
         {options}
       </select>
     </div>
