@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Filter = ({ id, label, opts, value, onChangeOption }) => {
+const Filter = ({
+  id, opts, value, onChangeOption,
+}) => {
   const options = opts.map((opt, i) => {
     return (
       <option key={i} value={opt.key}>{opt.value}</option>
@@ -14,14 +16,13 @@ const Filter = ({ id, label, opts, value, onChangeOption }) => {
         {options}
       </select>
     </div>
-  )
-}
+  );
+};
 
 Filter.propTypes = {
   id: PropTypes.number.isRequired,
-  label: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
-  opts: PropTypes.array.isRequired,
+  opts: PropTypes.arrayOf(PropTypes.object).isRequired,
   onChangeOption: PropTypes.func.isRequired,
 };
 

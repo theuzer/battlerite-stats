@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Image = ({ iconId, width, height, className }) => {
+const Image = ({
+  iconId, width, height, className,
+}) => {
   const src = require(`../../../static/images/${iconId}.png`);
   const alt = `${width}x${height}`;
 

@@ -12,8 +12,8 @@ const Property = ({ label, value }) =>
   );
 
 Property.propTypes = {
-  label: PropTypes.any,
-  value: PropTypes.any,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Property.defaultProps = {

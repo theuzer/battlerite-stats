@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const constants = require('./constants');
-const filters = require('../static/filters/index');
+const filters = require('../homeScreen/filters');
 
 //
 // Homescreen Stats

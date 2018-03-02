@@ -4,10 +4,10 @@ import Filter from './Champions/Filter';
 import Sort from './Champions/Sort';
 import ChampionCard from './Champions/ChampionCard';
 
-import api from '../../api/index';
+import api from '../../logic/api/index';
 import logic from '../../logic/index';
-import filters from '../../static/filters/index';
-import sorts from '../../static/sorts/index';
+import filters from '../../logic/homeScreen/filters';
+import sorts from '../../logic/homeScreen/sorts';
 
 import './style.css';
 

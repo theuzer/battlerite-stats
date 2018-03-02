@@ -1,4 +1,4 @@
-const sorts = require('../static/sorts/index');
+const sorts = require('./homeScreen/sorts');
 
 const mapChampionsStats = champions =>
   (champions.map(champion => ({
