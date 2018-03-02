@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from './Common/Header';
-
-import api from '../api/index';
-
-import './style.css';
+import api from '../logic/api/index';
 
 class Player extends Component {
   constructor() {
@@ -36,12 +32,7 @@ class Player extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <div className="content">
-          <div className="inner-content">
-            placeholder
-          </div>
-        </div>
+        placeholder
       </div>
     );
   }
