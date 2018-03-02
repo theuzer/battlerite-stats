@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 
+import Match from './Player/Match';
+
 import api from '../logic/api/index';
 
 class Player extends Component {
   constructor() {
     super();
     this.state = {
-      a: '',
+      matches: [],
     };
     this.getPlayerMatches = this.getPlayerMatches.bind(this);
   }
@@ -16,12 +18,14 @@ class Player extends Component {
   }
 
   getPlayerMatches(playerName, page) {
-    const i = this.state.a;
     console.time('getPlayerMatches');
     api.getPlayerMatches(playerName, page)
       .then((response) => {
         console.timeEnd('getPlayerMatches');
         console.log(response);
+        this.setState({
+          matches: response.data,
+        });
       })
       .catch((err) => {
         console.timeEnd('getPlayerMatches');
@@ -30,9 +34,14 @@ class Player extends Component {
   }
 
   render() {
+    const matches = this.state.matches.map(match =>
+      (
+        <Match match={match} />
+      ));
+
     return (
       <div>
-        placeholder
+        {matches}
       </div>
     );
   }

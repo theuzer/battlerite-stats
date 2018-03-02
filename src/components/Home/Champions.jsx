@@ -64,14 +64,17 @@ class Champions extends Component {
   }
 
   getStats() {
+    console.time('getStats');
     api.getStats(this.state.filters)
       .then((response) => {
+        console.timeEnd('getStats');
         const champions = logic.mapChampionsStats(response.data);
         this.setState({
           champions,
         });
       })
       .catch((err) => {
+        console.timeEnd('getStats');
         console.log(err);
       });
   }
