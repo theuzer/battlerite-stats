@@ -36,7 +36,7 @@ class Player extends Component {
   render() {
     const matches = this.state.matches.map(match =>
       (
-        <Match match={match} />
+        <Match key={match.id} match={match} />
       ));
 
     return (

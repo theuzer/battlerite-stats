@@ -1,0 +1,25 @@
+.match-card {
+  position: relative;
+  border: 2px solid;
+  border-radius: 6px;
+  padding: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.match-card:first-child {
+  margin-top: 0px;
+}
+
+.match-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(4px);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-position-y: -30px;
+  z-index: -1;
+}
