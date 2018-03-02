@@ -17,7 +17,7 @@ const Match = ({ match }) => {
   const matchType = `${mode} ${ranked}`;
 
   const matchIconUrl = `url(${require(`../../static/images/${match.map.iconId}.png`)})`;
-  const borderColor = match.win === true ? 'green' : 'red';
+  const borderColor = match.win === true ? '#00e500' : 'red';
 
   return (
     <div className="match-card" style={{ borderColor }}>
